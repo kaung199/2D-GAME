@@ -161,6 +161,7 @@ function getRandomValuesFromArray(arr, count) {
 }
 
 function reset() {
+  guessedNumbers = [];
   remainingGuesses = 5;
   guessAmount.value = '';
   const elements = document.querySelectorAll('.guess-digit');
