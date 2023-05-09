@@ -1,0 +1,7 @@
+.guess-btn {
+    cursor: pointer;
+}
+
+.guess-btn:hover {
+    letter-spacing: 1px;
+}

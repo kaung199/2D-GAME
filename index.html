@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2d-lottery-game">
+    <title>2D Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="left-sidebar text-center shadow p-4 h-100">
+                Balance (USD): <br>
+                <span class="text-danger total-price" id="total-price">10000</span> 
+
+                <hr>
+                Hint Numbers: <br><br>
+                <div id="hint-buttons"></div>
+
+                <br><br><br>
+                <span>Good Luck...</span>
+            </div>
+        </div>
+        <div class="col-md-6 shadow h-100">
+            <div class="header text-center p-4">
+                <h3>Guess 5 Numbers</h3>
+            </div>
+            <div class="content text-center">
+                <div id="buttons"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="left-sidebar text-center shadow p-2 h-100">
+                <div class="p-4">ThaiStock 2D (Today)</div>
+                <table class="table">
+                    <tr>
+                        <td>Hour</td>
+                        <td>Set</td>
+                        <td>Value</td>
+                        <td>2D</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger text-black">Live</span></td>
+                        <td id="live-set"></td>
+                        <td id="live-value"></td>
+                        <td class="text-danger" id="live-twod"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger text-black">11::00</span></td>
+                        <td id="eleven-oc-set"></td>
+                        <td id="eleven-oc-value"></td>
+                        <td class="text-danger" id="eleven-oc-twod"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger text-black">12:00</span></td>
+                        <td id="twelve-oc-set"></td>
+                        <td id="twelve-oc-value"></td>
+                        <td class="text-danger" id="twelve-oc-twod"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger text-black">03:00</span></td>
+                        <td id="three-oc-set"></td>
+                        <td id="three-oc-value"></td>
+                        <td class="text-danger" id="three-oc-twod"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger text-black">04:30</span></td>
+                        <td id="four-thirty-oc-set"></td>
+                        <td id="four-thirty-oc-value"></td>
+                        <td class="text-danger" id="four-thirty-oc-twod"></td>
+                    </tr>
+                </table>
+                <div class="pt-3">
+                    Updated : <span id="updated-hour"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="input-group pt-5">
+                <input type="number" class="form-control" id="guess-amount" aria-label="Dollar amount (with dot and two decimal places)" placeholder="Please enter your amount. Min amount is 500" requiredz>
+                <span class="input-group-text text-danger">$</span>
+                <span class="input-group-text bg-success text-white guess-btn" id="guess-btn">Guess</span>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
