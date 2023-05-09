@@ -25,6 +25,7 @@ let guessedNumbers = [];
 
 function handleGuess(guess) {
   if (remainingGuesses === 0 && !guessedNumbers.includes(guess)) {
+    errorAudio.play();
     alert("\u26A0\ufe0f\u26A0\ufe0f The maximum guess number is 5. \u26A0\ufe0f\u26A0\ufe0f");
     return;
   }
@@ -39,44 +40,48 @@ function handleGuess(guess) {
     remainingGuesses++;
     guessedNumbers.splice(guessedNumbers.indexOf(guess));
   }
-
-  console.log('guess = ' + guessedNumbers, 'remain guess = ' + remainingGuesses)
 }
 
 function handleCalculation(amount) {
   let currentAmount = totalPrice.innerHTML;
 
   if(guessedNumbers.length === 0) {
+    errorAudio.play();
     alert("\u26A0\ufe0f\u26A0\ufe0f Please select guess number. \u26A0\ufe0f\u26A0\ufe0f");
     return;
   }
   if(+amount == '') {
+    errorAudio.play();
     alert("\u26A0\ufe0f\u26A0\ufe0f Please enter amount. \u26A0\ufe0f\u26A0\ufe0f");
     guessAmount.focus();
     return;
   }
   if(+amount < 500) {
+    errorAudio.play();
     alert("\u26A0\ufe0f\u26A0\ufe0f Minimum amount is 500. \u26A0\ufe0f\u26A0\ufe0f");
     return;
   }
   if(+amount > +currentAmount) {
-    alert("\u26A0\ufe0f\u26A0\ufe0f Not enount amount. \u26A0\ufe0f\u26A0\ufe0f");
+    errorAudio.play();
+    alert("\u26A0\ufe0f\u26A0\ufe0f Not enough amount. \u26A0\ufe0f\u26A0\ufe0f");
     return;
   }
 
   const randomNumber = Math.floor(Math.random() * 100).toString().padStart(2, '0');
 
   if(guessedNumbers.includes(randomNumber)) {
+      winAudio.play();
       let winPrice = amount * 80;
       let updatePrice = currentAmount - amount + winPrice;
       let message = `The number is ${randomNumber}. You Win ${winPrice} USD.`;
       alert(message);
-      totalPrice.innerHTML = updatePrice;
+      totalPrice.innerHTML = ''+BigInt(updatePrice);
   } else {
+    loseAudio.play();
     let updatePrice = currentAmount - amount;
     let message = `The number is ${randomNumber}. You Loss ${amount} USD. Try again..`;
     alert(message);
-    totalPrice.innerHTML = updatePrice;
+    totalPrice.innerHTML = ''+BigInt(updatePrice);
   }
 
   reset();
@@ -167,3 +172,12 @@ function reset() {
   const elements = document.querySelectorAll('.guess-digit');
   elements.forEach(element => element.classList.remove('bg-success'));    
 }
+
+let winAudio = new Audio();
+winAudio.src = 'https://audio-previews.elements.envatousercontent.com/files/206084513/preview.mp3?response-content-disposition=attachment%3B+filename%3D%222PBE8A4-huge-win.mp3%22';
+
+let loseAudio = new Audio();
+loseAudio.src = 'https://assets.mixkit.co/active_storage/sfx/2027/2027-preview.mp3';
+
+let errorAudio = new Audio();
+errorAudio.src = 'https://assets.mixkit.co/active_storage/sfx/954/954-preview.mp3';

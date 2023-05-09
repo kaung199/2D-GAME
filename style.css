@@ -5,3 +5,7 @@
 .guess-btn:hover {
     letter-spacing: 1px;
 }
+
+.total-price {
+    word-wrap: break-word;
+}
