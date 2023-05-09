@@ -1,3 +1,11 @@
+let winAudio = new Audio();
+winAudio.src = 'https://audio-previews.elements.envatousercontent.com/files/206084513/preview.mp3?response-content-disposition=attachment%3B+filename%3D%222PBE8A4-huge-win.mp3%22';
+
+let loseAudio = new Audio();
+loseAudio.src = 'https://assets.mixkit.co/active_storage/sfx/2027/2027-preview.mp3';
+
+let errorAudio = new Audio();
+errorAudio.src = 'https://assets.mixkit.co/active_storage/sfx/954/954-preview.mp3';
 
 const buttonsContainer = document.getElementById('buttons');
 const hintButtonsContainer = document.getElementById('hint-buttons');
@@ -172,12 +180,3 @@ function reset() {
   const elements = document.querySelectorAll('.guess-digit');
   elements.forEach(element => element.classList.remove('bg-success'));    
 }
-
-let winAudio = new Audio();
-winAudio.src = 'https://audio-previews.elements.envatousercontent.com/files/206084513/preview.mp3?response-content-disposition=attachment%3B+filename%3D%222PBE8A4-huge-win.mp3%22';
-
-let loseAudio = new Audio();
-loseAudio.src = 'https://assets.mixkit.co/active_storage/sfx/2027/2027-preview.mp3';
-
-let errorAudio = new Audio();
-errorAudio.src = 'https://assets.mixkit.co/active_storage/sfx/954/954-preview.mp3';
